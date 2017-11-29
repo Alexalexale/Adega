@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.adega.model.Bebida;
-import br.adega.model.ResultadoModel;
+import br.adega.domain.Bebida;
+import br.adega.domain.ResultadoModel;
 import br.adega.repository.BebidaRepository;
 
 @RestController

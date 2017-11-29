@@ -1,4 +1,4 @@
-package br.adega.model;
+package br.adega.domain;
 
 public class ResultadoModel {
 

@@ -1,4 +1,4 @@
-package br.adega.model;
+package br.adega.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
