@@ -1,9 +1,13 @@
-package br.adega.bebida;
+package br.adega.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.adega.bebida.Bebida;
+import br.adega.bebida.ResultadoModel;
+import br.adega.repository.BebidaRepository;
 
 @RestController
 public class AdegaRestController {
