@@ -1,4 +1,4 @@
-package br.adega.bebida;
+package br.adega.repository;
 
 public class QueryRepository {
 
