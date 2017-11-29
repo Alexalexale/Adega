@@ -1,4 +1,4 @@
-package br.adega.bebida;
+package br.adega.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
