@@ -1,5 +1,7 @@
 package br.adega.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,16 +16,26 @@ public class AdegaRestController {
 	@Autowired
 	private BebidaService bebidaService;
 
-	@RequestMapping(value = "/addBebida", method = RequestMethod.GET)
-	public Bebida cadastrar(Bebida bebida) {
-		Bebida save = bebidaService.inserirBebida(bebida);
-		return save;
+	@RequestMapping(value = "/saveBebida", method = RequestMethod.GET)
+	public Bebida save(Bebida bebida) {
+		Bebida bebidaRetorno = bebidaService.inserirBebida(bebida);
+		return bebidaRetorno;
 	}
 
-	@RequestMapping(value = "/bebidaMaisVendida", method = RequestMethod.GET)
+	@RequestMapping(value = "/findBebidaMaisVendida", method = RequestMethod.GET)
 	public Bebida bebidaMaisVendida() {
-		Bebida findOne = bebidaService.getBebidaMaisVendida();
-		return findOne;
+		Bebida bebida = bebidaService.getBebidaMaisVendida();
+		return bebida;
+	}
+
+	@RequestMapping(value = "/findAllBebidas", method = RequestMethod.GET)
+	public List<Bebida> todosBebidas() {
+		return bebidaService.getAllBebidas();
+	}
+
+	@RequestMapping(value = "/findById", method = RequestMethod.GET)
+	public Bebida findBebidaById(Integer codigoBebida) {
+		return bebidaService.getBebidaById(codigoBebida);
 	}
 
 }

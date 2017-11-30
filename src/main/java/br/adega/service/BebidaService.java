@@ -1,5 +1,8 @@
 package br.adega.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.StoredProcedureQuery;
 
@@ -28,6 +31,17 @@ public class BebidaService {
 		Integer codigoMercadoriaMaisVendida = Integer.valueOf((String) procedure.getOutputParameterValue("codigo_mercadoria"));
 		Bebida findOne = bebidaRepository.findOne(codigoMercadoriaMaisVendida);
 		return findOne;
+	}
+
+	public List<Bebida> getAllBebidas() {
+		Iterable<Bebida> findAll = bebidaRepository.findAll();
+		List<Bebida> list = new ArrayList<>();
+		findAll.iterator().forEachRemaining(list::add);
+		return list;
+	}
+
+	public Bebida getBebidaById(Integer codigoBebida) {
+		return bebidaRepository.findOne(codigoBebida);
 	}
 
 }
