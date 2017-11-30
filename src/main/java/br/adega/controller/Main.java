@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({ "br.adega.controller" })
+@ComponentScan({ "br.adega.controller", "br.adega.service" })
 @EntityScan("br.adega.domain")
 @EnableJpaRepositories("br.adega.repository")
 public class Main {

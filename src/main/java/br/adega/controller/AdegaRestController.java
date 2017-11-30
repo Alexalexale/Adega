@@ -6,20 +6,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.adega.domain.Bebida;
-import br.adega.domain.ResultadoModel;
-import br.adega.repository.BebidaRepository;
+import br.adega.service.BebidaService;
 
 @RestController
 public class AdegaRestController {
 
 	@Autowired
-	private BebidaRepository bebidaRepository;
+	private BebidaService bebidaService;
 
 	@RequestMapping(value = "/addBebida", method = RequestMethod.GET)
-	public ResultadoModel cadastrar(Bebida bebida) {
-		ResultadoModel resultadoModel = new ResultadoModel(1, "OK");
-		bebidaRepository.save(bebida);
-		return resultadoModel;
+	public Bebida cadastrar(Bebida bebida) {
+		Bebida save = bebidaService.inserirBebida(bebida);
+		return save;
+	}
+
+	@RequestMapping(value = "/bebidaMaisVendida", method = RequestMethod.GET)
+	public Bebida bebidaMaisVendida() {
+		Bebida findOne = bebidaService.getBebidaMaisVendida();
+		return findOne;
 	}
 
 }

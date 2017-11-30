@@ -9,8 +9,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 
 @Entity
+@NamedStoredProcedureQuery(name = "pc_bebida_mais_vendida", procedureName = "pc_bebida_mais_vendida", parameters = {
+		@StoredProcedureParameter(name = "codigo_mercadoria", mode = ParameterMode.OUT, type = String.class) })
 public class Bebida {
 
 	@Id
@@ -45,14 +50,6 @@ public class Bebida {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public Set<Venda> getVendas() {
-		return vendas;
-	}
-
-	public void setVendas(Set<Venda> vendas) {
-		this.vendas = vendas;
 	}
 
 }
