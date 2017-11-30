@@ -1,7 +1,6 @@
 package br.adega.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,11 +36,6 @@ public class AdegaRestController {
 	@RequestMapping(value = "/findById", method = RequestMethod.GET)
 	public Bebida findBebidaById(Integer codigoBebida) {
 		return bebidaService.getBebidaById(codigoBebida);
-	}
-
-	@RequestMapping(value = "/")
-	public String home(Map<String, Object> model) {
-		return "home";
 	}
 
 }
